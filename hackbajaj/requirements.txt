@@ -1,0 +1,17 @@
+fastapi
+uvicorn
+requests
+PyPDF2
+python-dotenv
+google-generativeai
+pinecone
+python-dotenv
+sentence-transformers
+transformers
+torch
+pdf2image
+PyMuPDF
+opencv-python-headless
+reportlab
+numpy
+scikit-learn
