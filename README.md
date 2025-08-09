@@ -1,10 +1,10 @@
 # hackrx-bajaj-MVP
 **Bajaj Hackathon – Intelligent Policy Document Q&A**
-Non-commercial use only – Educational, research, and personal tinkering welcome.
+*Non-commercial use only – Educational, research, and personal tinkering welcome.*
 
 This project was built for the Bajaj Hackathon as an end-to-end intelligent document question-answering system. It downloads structured policy PDFs, identifies and ranks relevant sections for given questions, and returns concise answers — all powered by embeddings, retrieval, and generative AI.
 
-->**Key Features**
+##->**Key Features**
     1. PDF Text Extraction & Ranking – Downloads PDFs, extracts text, and scores pages using TF-IDF relevance against questions expanded using LLM to highlight the crux of the question.
     2. Custom Chunking – Instead of fixed-size splits, chunks are dynamically sized based on visual structure and text density.
     3. OpenCV-based Bounding Boxes – We preprocess policy documents by reducing contrast, detecting text regions, and generating bounding boxes. This ensures that spatially related text         stays together in chunks.As policy documnets are structured and semantic meaning mostly stays spatially clustered.
@@ -12,7 +12,7 @@ This project was built for the Bajaj Hackathon as an end-to-end intelligent docu
     5. FastAPI Endpoint – A /hackrx/run API for programmatic Q&A.
     6. Multi-step Retrieval – Combines page scoring and vector search to maximize answer accuracy.
 
-->**Requirements**
+##->**Requirements**
     You’ll need the following before running:
     1.Python 3.10+
     2.A .env file that includes
@@ -23,7 +23,7 @@ This project was built for the Bajaj Hackathon as an end-to-end intelligent docu
       2.5)BEARER_TOKEN=your-bearer-token (authenticates your post request).
     3.Dependencies: pip install -r requirements.txt
 
-->**Running the API-**
+##->**Running the API-**
 1)Start the FastAPI server
  *uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload*
   --host 0.0.0.0 broadcasts it so you can send requests from Postman, curl, or another machine.By default, it’ll run on http://localhost:8000.
@@ -38,7 +38,7 @@ This project was built for the Bajaj Hackathon as an end-to-end intelligent docu
     -ContentType "application/json"
   $response*
   
-->**How It Works**
+##->**How It Works**
 Question Expansion – Gemini expands each input question into keyword-rich queries for better recall.
    *eg- Processing Query: 'Are the medical expenses for an organ donor covered under this policy? Here are 5 keywords focusing on the core concepts, with nouns highlighted:
        1.  Medical Expenses
@@ -52,14 +52,14 @@ Custom Embedding – Each chunk is encoded into a 384-dimensional vector using a
 Vector Search – Pinecone retrieves semantically similar chunks.
 Answer Generation – Retrieved context is sent to Gemini for concise answers.
 
-->**Future Improvements**
+##->**Future Improvements**
 Context Graph Retrieval – Build a graph of related concepts across the document, so chunks from different parts can be linked if relevant to the same question.
 Multi-modal embeddings – Combine visual layout + text embeddings for richer context understanding.
 Re-ranking with LLMs – Use Gemini to re-rank retrieved chunks before answering.
 Support for multiple document formats – DOCX, HTML, etc.
 faster response times with multiprocessing and reduced latency.
 
-📜 License
+##License
 This project is licensed under the Creative Commons Attribution-NonCommercial 4.0 International (CC BY-NC 4.0) license.
 You may:
 ✔ Share & modify
